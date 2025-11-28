@@ -45,8 +45,9 @@ resource "aws_security_group" "ec2_sg" {
 resource "aws_instance" "server" {
   ami                    = var.ami_id
   instance_type          = var.instance_type
-  key_name               = "all-key"   # your key pair name
+  key_name               = "all-key"                          # your key pair
   vpc_security_group_ids = [aws_security_group.ec2_sg.id]
+  subnet_id              = "subnet-0bf5c47df7f491668"         # your subnet ID
 
   tags = {
     Name = "terraform-jenkins-ec2"
