@@ -8,7 +8,7 @@ variable "instance_type" {
   default = "t2.micro"
 }
 
-# Exact Amazon Linux 2 AMI for us-east-1
+# Amazon Linux 2 AMI for us-east-1
 variable "ami_id" {
   type    = string
   default = "ami-0c2b8ca1dad447f8a"
