@@ -12,7 +12,7 @@ provider "aws" {
   region = var.region
 }
 
-# Security Group for EC2
+# Security Group
 resource "aws_security_group" "ec2_sg" {
   name        = "terraform-demo-sg"
   description = "Allow SSH and HTTP"
@@ -43,9 +43,9 @@ resource "aws_security_group" "ec2_sg" {
 
 # EC2 Instance
 resource "aws_instance" "server" {
-  ami           = var.ami_id
-  instance_type = var.instance_type
-  key_name      = "all-key"                       # <-- your AWS key name
+  ami                    = var.ami_id
+  instance_type          = var.instance_type
+  key_name               = "all-key"   # your key pair name
   vpc_security_group_ids = [aws_security_group.ec2_sg.id]
 
   tags = {
